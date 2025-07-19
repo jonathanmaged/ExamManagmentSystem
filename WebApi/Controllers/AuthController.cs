@@ -15,9 +15,11 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Register(RegisterRequest request)
         {
             var result = await authService.RegisterAsync(request);
-            if (!result.IsSuccess) 
-                return StatusCode(result.StatusCode, result.ErrorList);
-            return Created();
+            return result.StatusCode switch
+            {
+                201 or 409  => StatusCode(result.StatusCode, result.Message),
+                400 => StatusCode(result.StatusCode, result.ErrorList),
+            };
         }
 
 
