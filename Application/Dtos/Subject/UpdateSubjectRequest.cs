@@ -1,6 +1,6 @@
-﻿namespace Application.Dtos.UpdateDto
+﻿namespace Application.Dtos.Subject
 {
-    public class UpdateSubjectDto
+    public class UpdateSubjectRequest
     {
         public int Id { get; set; }
         public string Name { get; set; }

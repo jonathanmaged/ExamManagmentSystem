@@ -4,8 +4,10 @@
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
-        void AddAsync(T entity);
-        void UpdateAsync(T entity);
-        void DeleteAsync(T entity);
+        Task<T> GetEntityWithSpec(ISpecification<T> spec);
+        Task<IEnumerable<T>> ListAsync(ISpecification<T> spec);
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
     }
 }
