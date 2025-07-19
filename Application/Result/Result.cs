@@ -13,7 +13,7 @@ namespace Application.Result
         public int StatusCode { get; init; }
         public T? Data { get; init; } 
         public string? Message { get; init; }
-        public List<string> ErrorList { get; init; } = new();
+        public IEnumerable<string> ErrorList { get; init; }
 
 
         public static Result<T> Success(int statusCode, string? message = default)
@@ -22,7 +22,7 @@ namespace Application.Result
             => new() { IsSuccess = true, StatusCode = statusCode, Data = data };
         public static Result<T> Faliure(int statusCode, string? message = default) 
             => new() { IsSuccess = false, StatusCode = statusCode, Message = message};
-        public static Result<T> Faliure(int statusCode, List<string> errorList)
+        public static Result<T> Faliure(int statusCode, IEnumerable<string> errorList)
            => new() { IsSuccess = false, StatusCode = statusCode, ErrorList = errorList };
 
     }
