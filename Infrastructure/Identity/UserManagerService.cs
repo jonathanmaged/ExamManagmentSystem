@@ -39,6 +39,6 @@ namespace Infrastructure.Identity
             };
             return user;
 
-        }
     }
+}
 }
